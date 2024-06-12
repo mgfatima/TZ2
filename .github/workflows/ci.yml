@@ -26,3 +26,9 @@ jobs:
           node-version: '14'
       - name: Install dependencies
         run: npm install
+      - name: Notify Telegram
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets. TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM TOKEN }}
+          message: 'CI build ${{ status }}!'
